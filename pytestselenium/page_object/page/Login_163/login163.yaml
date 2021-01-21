@@ -1,0 +1,6 @@
+loginName:
+    dec: 登录页
+    type: xpath
+    value: //div[@class='u-input box']/input[@name='email']
+
+

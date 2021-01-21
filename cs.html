@@ -1,0 +1,415 @@
+
+<!DOCTYPE html>
+<html lang='zh-cn'>
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="renderer" content="webkit">
+  <title>自助打印-创建发布 - 禅道</title>
+<script>window.config={"webRoot":"\/zentao\/","debug":false,"appName":"","cookieLife":30,"requestType":"PATH_INFO","requestFix":"-","moduleVar":"m","methodVar":"f","viewVar":"t","defaultView":"html","themeRoot":"\/zentao\/theme\/","currentModule":"release","currentMethod":"create","clientLang":"zh-cn","requiredFields":"name,date","router":"\/zentao\/index.php","save":"\u4fdd\u5b58","runMode":"","timeout":30000,"pingInterval":""};
+window.lang={"submitting":"\u7a0d\u5019...","save":"\u4fdd\u5b58","expand":"\u5c55\u5f00\u5168\u90e8","timeout":"\u8fde\u63a5\u8d85\u65f6\uff0c\u8bf7\u68c0\u67e5\u7f51\u7edc\u73af\u5883\uff0c\u6216\u91cd\u8bd5\uff01"};
+
+</script>
+<script>config.onlybody = "no";</script><link rel='stylesheet' href='/zentao/theme/default/zh-cn.default.css?v=12.3.3' type='text/css' media='screen' />
+<script src='/zentao/js/all.js?v=12.3.3'></script>
+<style>.contentDiv { height:190px; overflow-y:auto; margin-bottom: 10px!important}
+.contentDiv .panel-heading {line-height: 14px;}
+.checkbox-primary{display:inline-block;}
+</style><link rel='icon' href='/zentao/favicon.ico' type='image/x-icon' />
+<link rel='shortcut icon' href='/zentao/favicon.ico' type='image/x-icon' />
+<!--[if lt IE 10]>
+<script src='/zentao/js/jquery/placeholder/min.js?v=12.3.3'></script>
+<![endif]-->
+</head>
+<body>
+<script>
+var chooseUsersToMail    = '选择要发信通知的用户...';
+$(document).ready(function()
+{
+    $("#mailto").attr('data-placeholder', chooseUsersToMail);
+    $("#mailto, #productID").chosen();
+});
+</script>
+<header id='header'>
+  <div id='mainHeader'>
+    <div class='container'>
+      <hgroup id='heading'>
+                <h1 id='companyname' title='全网云杭州研发中心'><a href='/zentao/index.html' >全网云杭州研发中心</a>
+</h1>
+      </hgroup>
+      <nav id='navbar'><ul class='nav nav-default'>
+<li  data-id='my'><a href='/zentao/my/' ><span> 我的地盘</span></a></li>
+<li class='active' data-id='product'><a href='/zentao/product-index-no.html' class='active'>产品</a></li>
+<li  data-id='project'><a href='/zentao/project-index-no.html' >项目</a></li>
+<li  data-id='qa'><a href='/zentao/qa/' >测试</a></li>
+<li class='divider'></li><li  data-id='doc'><a href='/zentao/doc/' >文档</a></li>
+<li  data-id='report'><a href='/zentao/report/' >统计</a></li>
+<li class='divider'></li><li  data-id='company'><a href='/zentao/company/' >组织</a></li>
+</ul>
+</nav>
+      <div id='toolbar'>
+        <div id="userMenu">
+          <div id='searchbox'><div class='input-group'><div class='input-group-btn'><a data-toggle='dropdown' class='btn btn-link'><span id='searchTypeName'>发布</span> <span class='caret'></span></a><input type='hidden' name='searchType' id='searchType' value='release'  />
+<ul id='searchTypeMenu' class='dropdown-menu'><li ><a href='javascript:$.setSearchType("bug");' data-value='bug'>Bug</a></li><li ><a href='javascript:$.setSearchType("story");' data-value='story'>需求</a></li><li ><a href='javascript:$.setSearchType("task");' data-value='task'>任务</a></li><li ><a href='javascript:$.setSearchType("testcase");' data-value='testcase'>用例</a></li><li ><a href='javascript:$.setSearchType("project");' data-value='project'>项目</a></li><li ><a href='javascript:$.setSearchType("product");' data-value='product'>产品</a></li><li ><a href='javascript:$.setSearchType("user");' data-value='user'>用户</a></li><li ><a href='javascript:$.setSearchType("build");' data-value='build'>版本</a></li><li class='selected'><a href='javascript:$.setSearchType("release");' data-value='release'>发布</a></li><li ><a href='javascript:$.setSearchType("productplan");' data-value='productplan'>产品计划</a></li><li ><a href='javascript:$.setSearchType("testtask");' data-value='testtask'>测试单</a></li><li ><a href='javascript:$.setSearchType("doc");' data-value='doc'>文档</a></li><li ><a href='javascript:$.setSearchType("caselib");' data-value='caselib'>用例库</a></li><li ><a href='javascript:$.setSearchType("testreport");' data-value='testreport'>测试报告</a></li></ul></div><input id='searchInput' class='form-control search-input' type='search' onclick='this.value=""' onkeydown='if(event.keyCode==13) $.gotoObject();' placeholder='编号(ctrl+g)'/></div><a href='javascript:$.gotoObject();' class='btn btn-link' id='searchGo'>GO!</a></div>
+          <ul id="userNav" class="nav nav-default">
+            <li><a class='dropdown-toggle' data-toggle='dropdown'><span class='user-name'>鲁潜元</span><span class='caret'></span></a><ul class='dropdown-menu pull-right'><li class="user-profile-item"><a href='/zentao/my-profile.html' class=''><div class='avatar avatar bg-secondary avatar-circle'>L</div>
+<div class="user-profile-name">鲁潜元</div><div class="user-profile-role">测试</div></a></li><li class="divider"></li><li><a href='/zentao/my-profile.html' >个人档案</a>
+</li><li><a href='/zentao/my-changepassword.html?onlybody=yes' class='iframe' data-width='500'>更改密码</a>
+</li><li class='divider'></li><li class='dropdown-submenu'><a href='javascript:;'>主题</a><ul class='dropdown-menu pull-left'><li class='selected'><a href='javascript:selectTheme("default");' data-value='default'>禅道蓝（默认）</a></li><li ><a href='javascript:selectTheme("green");' data-value='green'>叶兰绿</a></li><li ><a href='javascript:selectTheme("red");' data-value='red'>赤诚红</a></li><li ><a href='javascript:selectTheme("purple");' data-value='purple'>玉烟紫</a></li><li ><a href='javascript:selectTheme("pink");' data-value='pink'>芙蕖粉</a></li><li ><a href='javascript:selectTheme("blackberry");' data-value='blackberry'>露莓黑</a></li><li ><a href='javascript:selectTheme("classic");' data-value='classic'>经典蓝</a></li></ul></li><li class='dropdown-submenu'><a href='javascript:;'>Language</a><ul class='dropdown-menu pull-left'><li class='selected'><a href='javascript:selectLang("zh-cn");'>简体</a></li><li ><a href='javascript:selectLang("zh-tw");'>繁體</a></li><li ><a href='javascript:selectLang("en");'>English</a></li><li ><a href='javascript:selectLang("de");'>Deutsch</a></li><li ><a href='javascript:selectLang("fr");'>Français</a></li><li ><a href='javascript:selectLang("vi");'>Tiếng Việt</a></li></ul></li><li class='custom-item'><a href='/zentao/custom-ajaxMenu-release-create.html?onlybody=yes' data-toggle='modal' data-type='iframe' data-icon='cog' data-width='80%'>自定义导航</a></li><li class="divider"></li><li class='dropdown-submenu'><a data-toggle='dropdown'>帮助</a><ul class='dropdown-menu pull-left'><li><a href='/zentao/tutorial-start.html' class='iframe' data-class-name='modal-inverse' data-width='800' data-headerless='true' data-backdrop='true' data-keyboard='true'>新手教程</a>
+</li><li><a href='https://www.zentao.net/book/zentaopmshelp.html?fullScreen=zentao' class='open-help-tab' target='_blank'>手册</a>
+</li><li><a href='/zentao/misc-changeLog.html' class='iframe' data-width='800' data-headerless='true' data-backdrop='true' data-keyboard='true'>修改日志</a>
+</li></ul></li>
+<li><a href='/zentao/misc-about.html' class='about iframe' data-width='1050' data-headerless='true' data-backdrop='true' data-keyboard='true' data-class='modal-about'>关于禅道</a>
+</li><li class="divider"></li><li><a href='/zentao/user-logout.html' >退出</a>
+</li></ul></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id='subHeader'>
+    <div class='container'>
+      <div id="pageNav" class='btn-toolbar'><div class="btn-group angle-btn"><div class="btn-group"><button data-toggle="dropdown" type="button" class="btn">产品主页 <span class="caret"></span></button><ul class="dropdown-menu"><li><a href='/zentao/product-index-no.html' ><i class="icon icon-home"></i> 产品主页</a>
+</li><li><a href='/zentao/product-all.html' ><i class="icon icon-cards-view"></i> 所有产品</a>
+</li></ul></div></div><div class='btn-group angle-btn'><div class='btn-group'><button data-toggle='dropdown' type='button' class='btn btn-limit' id='currentItem' title='自助打印'>自助打印 <span class='caret'></span></button><div id='dropMenu' class='dropdown-menu search-list' data-ride='searchList' data-url='/zentao/product-ajaxGetDropMenu-3-release-create-.html'><div class="input-control search-box has-icon-left has-icon-right search-example"><input type="search" class="form-control search-input" /><label class="input-control-icon-left search-icon"><i class="icon icon-search"></i></label><a class="input-control-icon-right search-clear-btn"><i class="icon icon-close icon-sm"></i></a></div></div></div></div></div>
+      <nav id='subNavbar'><ul class='nav nav-default'>
+<li class=' ' data-id='story'><a href='/zentao/product-browse-3.html' >需求</a>
+</li>
+<li class='divider'></li><li class=' ' data-id='plan'><a href='/zentao/productplan-browse-3.html' >计划</a>
+</li>
+<li class=' active' data-id='release'><a href='/zentao/release-browse-3.html' >发布</a>
+</li>
+<li class=' ' data-id='roadmap'><a href='/zentao/product-roadmap-3.html' >路线图</a>
+</li>
+<li class='divider'></li><li class=' ' data-id='project'><a href='/zentao/product-project-all-3.html' >项目</a>
+</li>
+<li class=' ' data-id='dynamic'><a href='/zentao/product-dynamic-3.html' >动态</a>
+</li>
+<li class='divider'></li><li class=' ' data-id='doc'><a href='/zentao/doc-objectLibs-product-3-product.html' >文档</a>
+</li>
+<li class=' ' data-id='module'><a href='/zentao/tree-browse-3-story.html' >模块</a>
+</li>
+<li class=' ' data-id='view'><a href='/zentao/product-view-3.html' >概况</a>
+</li>
+</ul>
+</nav>
+      <div id="pageActions"><div class='btn-toolbar'></div></div>
+    </div>
+  </div>
+  </header>
+
+<main id='main'  >
+  <div class='container'>
+<script src='/zentao/js/kindeditor/kindeditor.min.js?v=12.3.3'></script>
+<script src='/zentao/js/kindeditor/lang/zh_CN.js?v=12.3.3'></script>
+<script>
+(function($) {
+    var kuid = '5f16ee2300864';
+    var editor = {"id":["desc"],"tools":"simpleTools"};
+    var K = KindEditor;
+
+    var bugTools =
+    [ 'formatblock', 'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic','underline', '|',
+    'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist', 'insertunorderedlist', '|',
+    'emoticons', 'image', 'code', 'link', '|', 'removeformat','undo', 'redo', 'fullscreen', 'source', 'about'];
+    var simpleTools =
+    [ 'formatblock', 'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic','underline', '|',
+    'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist', 'insertunorderedlist', '|',
+    'emoticons', 'image', 'code', 'link', 'table', '|', 'removeformat','undo', 'redo', 'fullscreen', 'source', 'about'];
+    var fullTools =
+    [ 'formatblock', 'fontname', 'fontsize', 'lineheight', '|', 'forecolor', 'hilitecolor', '|', 'bold', 'italic','underline', 'strikethrough', '|',
+    'justifyleft', 'justifycenter', 'justifyright', 'justifyfull', '|',
+    'insertorderedlist', 'insertunorderedlist', '|',
+    'emoticons', 'image', 'insertfile', 'hr', '|', 'link', 'unlink', '/',
+    'undo', 'redo', '|', 'selectall', 'cut', 'copy', 'paste', '|', 'plainpaste', 'wordpaste', '|', 'removeformat', 'clearhtml','quickformat', '|',
+    'indent', 'outdent', 'subscript', 'superscript', '|',
+    'table', 'code', '|', 'pagebreak', 'anchor', '|',
+    'fullscreen', 'source', 'preview', 'about'];
+    var editorToolsMap = {fullTools: fullTools, simpleTools: simpleTools, bugTools: bugTools};
+
+    // Kindeditor default options
+    var editorDefaults =
+    {
+        cssPath: [config.themeRoot + 'zui/css/min.css'],
+        width: '100%',
+        height: '200px',
+        filterMode: true,
+        bodyClass: 'article-content',
+        urlType: 'absolute',
+        uploadJson: createLink('file', 'ajaxUpload', 'uid=' + kuid),
+        allowFileManager: true,
+        langType: 'zh_CN',
+        cssData: 'html,body {background: none}.article-content{overflow:visible}.article-content, .article-content table td, .article-content table th {line-height: 1.3846153846; font-size: 13px;}.article-content .table-auto {width: auto!important; max-width: 100%;}',
+        placeholderStyle: {fontSize: '13px', color: '#888'},
+        pasteImage: {postUrl: createLink('file', 'ajaxPasteImage', 'uid=' + kuid), placeholder: "\u53ef\u4ee5\u5728\u7f16\u8f91\u5668\u76f4\u63a5\u8d34\u56fe\u3002"},
+        syncAfterBlur: true,
+        spellcheck: false
+    };
+
+    window.editor = {};
+
+    // Init kindeditor
+    var setKindeditor = function(element, options)
+    {
+        var $editor  = $(element);
+        var pasted   = false;
+        var editorID = $editor.attr('id');
+        options      = $.extend({}, editorDefaults, $editor.data(), options);
+        if(editorID === undefined)
+        {
+            editorID = 'kindeditor-' + $.zui.uuid();
+            $editor.attr('id', editorID);
+        }
+
+        var editorTool  = editorToolsMap[options.tools || editor.tools] || simpleTools;
+
+        /* Remove fullscreen in modal. */
+        if(config.onlybody == 'yes')
+        {
+            var newEditorTool = new Array();
+            for(i in editorTool)
+            {
+                if(editorTool[i] != 'fullscreen') newEditorTool.push(editorTool[i]);
+            }
+            editorTool = newEditorTool;
+        }
+
+        $.extend(options,
+        {
+            items: editorTool,
+            placeholder: $editor.attr('placeholder') || options.placeholder || '',
+            pasteImage: {postUrl: createLink('file', 'ajaxPasteImage', 'uid=' + kuid), placeholder: $editor.attr('placeholder') || "\u53ef\u4ee5\u5728\u7f16\u8f91\u5668\u76f4\u63a5\u8d34\u56fe\u3002"},
+        });
+
+        try
+        {
+            var keditor = K.create('#' + editorID, options);
+            window.editor['#'] = window.editor[editorID] = keditor;
+            $editor.data('keditor', keditor);
+            return keditor;
+        }
+        catch(e){return false;}
+    };
+
+    // Init kindeditor with jquery way
+    $.fn.kindeditor = function(options)
+    {
+        return this.each(function()
+        {
+            setKindeditor(this, options);
+        });
+    };
+
+    // Init all kindeditor
+    var initKindeditor = function(afterInit)
+    {
+        var $submitBtn = $('form :input[type=submit]');
+        if($submitBtn.length)
+        {
+            $submitBtn.next('#uid').remove();
+            $submitBtn.after("<input type='hidden' id='uid' name='uid' value=" + kuid + ">");
+        }
+        if($.isFunction(afterInit)) afterInit();
+        $.each(editor.id, function(key, editorID)
+        {
+            setKindeditor('#' + editorID);
+        });
+    };
+
+    // Init all kindeditors when document is ready
+    $(initKindeditor);
+}(jQuery));
+</script>
+<div id='mainContent' class='main-content'>
+  <div class='center-block'>
+    <div class='main-header'>
+      <h2>创建发布</h2>
+    </div>
+    <form class='load-indicator main-form form-ajax' id='dataform' method='post' enctype='multipart/form-data'>
+      <table class='table table-form'>
+        <tbody>
+          <tr>
+            <th>发布名称</th>
+            <td><input type='text' name='name' id='name' value='' class='form-control' required autocomplete="off" />
+</td>
+            <td class='muted'>
+              <div class='checkbox-primary'>
+                <input id='marker' name='marker' value='1' type='checkbox' />
+                <label for='marker'>里程碑</label>
+              </div>
+              (上次发布: 自助打印 衢州OEM V1.0.0.5.beta.b20200721)            </td>
+          </tr>
+          <tr>
+            <th>版本</th>
+            <td><select name='build' id='build' class='form-control chosen'>
+<option value='' selected='selected' title='' data-keys=' '></option>
+<option value='318' title='QZ_V1.0.0.5' data-keys='qz_v1.0.0.5 q005'>QZ_V1.0.0.5</option>
+<option value='309' title='V1.0.0.1_SXOEM' data-keys='v1.0.0.1_sxoem v001'>V1.0.0.1_SXOEM</option>
+<option value='298' title='自助打印with可取报告通知' data-keys='zizhudayinwithkequbaogaotongzhi zzdywkqbgtz'>自助打印with可取报告通知</option>
+<option value='184' title='V1.1.0.22_beta' data-keys='v1.1.0.22_beta v102'>V1.1.0.22_beta</option>
+<option value='179' title='V1.1.0.21' data-keys='v1.1.0.21 v102'>V1.1.0.21</option>
+<option value='169' title='V1.1.0.18' data-keys='v1.1.0.18 v101'>V1.1.0.18</option>
+<option value='168' title='V1.1.0.17' data-keys='v1.1.0.17 v101'>V1.1.0.17</option>
+<option value='114' title='V1.1.0.11' data-keys='v1.1.0.11 v101'>V1.1.0.11</option>
+<option value='106' title='V1.0.0.10' data-keys='v1.0.0.10 v001'>V1.0.0.10</option>
+<option value='104' title='V1.0.0.9' data-keys='v1.0.0.9 v009'>V1.0.0.9</option>
+<option value='100' title='V1.0.0.8' data-keys='v1.0.0.8 v008'>V1.0.0.8</option>
+<option value='97' title=' V1.0.0.7' data-keys='v1.0.0.7 v007'> V1.0.0.7</option>
+<option value='95' title='V1.0.0.6' data-keys='v1.0.0.6 v006'>V1.0.0.6</option>
+<option value='91' title='V1.0.0.5' data-keys='v1.0.0.5 v005'>V1.0.0.5</option>
+<option value='90' title='ReportTellerV1.0.0.0' data-keys='reporttellerv1.0.0.0 r00'>ReportTellerV1.0.0.0</option>
+<option value='59' title='V1.0.0.3' data-keys='v1.0.0.3 v003'>V1.0.0.3</option>
+<option value='56' title='V1.0.0.2' data-keys='v1.0.0.2 v002'>V1.0.0.2</option>
+<option value='53' title='V1.0.0.0' data-keys='v1.0.0.0 v00'>V1.0.0.0</option>
+<option value='18' title='FJERY_SelfPrinter_V1.5' data-keys='fjery_selfprinter_v1.5 f5'>FJERY_SelfPrinter_V1.5</option>
+<option value='15' title='FJERY_SelfPrinter_V1.4' data-keys='fjery_selfprinter_v1.4 f4'>FJERY_SelfPrinter_V1.4</option>
+<option value='14' title='FJERY_SelfPrinter_V1.3' data-keys='fjery_selfprinter_v1.3 f3'>FJERY_SelfPrinter_V1.3</option>
+<option value='13' title='FJERY_SelfPrinter_V1.1' data-keys='fjery_selfprinter_v1.1 f1'>FJERY_SelfPrinter_V1.1</option>
+<option value='10' title='FJERY_SelfPrinter_V1.0' data-keys='fjery_selfprinter_v1.0 f'>FJERY_SelfPrinter_V1.0</option>
+</select>
+</td><td></td>
+          </tr>
+          <tr>
+            <th>发布日期</th>
+            <td><input type='text' name='date' id='date' value='2020-07-21' class='form-control form-date' required autocomplete="off" />
+</td><td></td>
+          </tr>
+          <tr class='hide'>
+            <th>状态</th>
+            <td><input type='hidden' name='status' id='status' value='normal' disabled />
+</td>
+            <td></td>
+          </tr>
+                    <tr>
+            <th>描述</th>
+            <td colspan='2'><textarea name='desc' id='desc' rows='10' class='form-control kindeditor' hidefocus='true'></textarea>
+</td>
+          </tr>
+          <tr>
+            <th>附件 </th>
+            <td colspan='2'><style>
+.file-input .file-editbox{max-width:40%;}
+.file-input-list .input-group-btn{float:left}
+</style>
+<script>dangerExtensions = ",php,php3,php4,phtml,php5,jsp,py,rb,asp,aspx,ashx,asa,cer,cdx,aspl,shtm,shtml,html,htm,";</script>
+<div class="file-input-list" data-provide="fileInputList" data-each-file-max-size="50M" data-file-size-error=" 文件大小已经超过50M，可能不能成功上传！">
+  <div class="file-input">
+    <div class="file-input-empty">
+      <button type="button" class="btn btn-link file-input-btn"><i class="icon icon-plus"></i> 添加文件</button> <small class="muted">（不超过50M）</small>
+    </div>
+    <div class="file-input-edit input-group">
+      <div class="input-group-cell"><i class="icon icon-paper-clip text-muted"></i></div>
+      <input type="text" name="labels[]" class="form-control file-editbox" placeholder="标题">
+      <div class="input-group-btn">
+        <button type="button" class="btn btn-success file-name-confirm"><i class="icon icon-check"></i></button>
+        <button type="button" class="btn btn-gray file-name-cancel"><i class="icon icon-close"></i></button>
+      </div>
+    </div>
+    <div class="file-input-normal input-group">
+      <div class="input-group-cell"><i class="icon icon-paper-clip text-muted"></i></div>
+      <div class="input-group-cell">
+        <span class="file-title"></span>
+        <small class="file-size muted"></small>
+      </div>
+      <div class="input-group-btn">
+        <button type="button" class="btn btn-link file-input-rename">重命名</button>
+        <button type="button" class="btn btn-link file-input-delete">删除</button>
+      </div>
+    </div>
+    <input type="file" name="files[]" onchange="checkDangerExtension(this)" />
+  </div>
+</div>
+<script>
+function checkDangerExtension(obj)
+{
+    var fileName = $(obj).val();
+    var index    = fileName.lastIndexOf(".");
+    if(index >= 0)
+    {
+        extension = fileName.substr(index + 1);
+        if(dangerExtensions.lastIndexOf(',' + extension + ',') >= 0)
+        {
+            alert(" \u60a8\u9009\u62e9\u7684\u6587\u4ef6\u5b58\u5728\u5b89\u5168\u98ce\u9669\uff0c\u7cfb\u7edf\u5c06\u4e0d\u4e88\u4e0a\u4f20\u3002");
+            $(obj).val('');
+        }
+    }
+}
+</script>
+</td>
+          </tr>
+          <tr>
+            <td colspan='3' class='text-center form-actions'>
+               <button type='submit' id='submit' class='btn btn-wide btn-primary'  data-loading='稍候...'>保存</button>              <a href='javascript:history.go(-1);' class='btn btn-back btn-wide' >返回</a>            </td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
+</div>
+<script>
+$(function()
+{
+    $(".form-date").datetimepicker('setEndDate', '2020-07-21');
+});
+</script>
+</div><script>
+$.initSidebar();
+</script>
+
+<iframe frameborder='0' name='hiddenwin' id='hiddenwin' scrolling='no' class='debugwin hidden'></iframe>
+
+</main><footer id='footer'>
+  <div class="container">
+    <ul class='breadcrumb'><li><a href='/zentao/my/' >禅道</a>
+</li><li><a href='/zentao/product/' >产品</a>
+</li><li class='active'><a href='/zentao/product-browse-3-0.html' >自助打印</a>
+</li><li class='active'>创建发布</li></ul>    <div id='poweredBy'>
+      <small class='muted'><a href='https://api.zentao.net/goto.php?item=aiux' class='link-aiux' target='_blank'>Designed by <strong>艾体验</strong></a></small> &nbsp;
+      <a href='https://www.zentao.net' target='_blank'><i class='icon-zentao'></i> 禅道12.3.3</a> &nbsp;
+      <a href='https://api.zentao.net/goto.php?item=proversion&from=footer' target='_blank' id='proLink' class='text-important'>专业版 <i class='text-danger icon-pro-version'></i></a> &nbsp;           </div>
+  </div>
+</footer>
+<div id="noticeBox"></div>
+<script>
+/* Alert got messages. */
+needPing = false;
+$(function()
+{
+    var windowBlur = false;
+    if(window.Notification)
+    {
+        window.onblur  = function(){windowBlur = true;}
+        window.onfocus = function(){windowBlur = false;}
+    }
+    setInterval(function()
+    {
+        $.get(createLink('message', 'ajaxGetMessage', "windowBlur=" + (windowBlur ? '1' : '0')), function(data)
+        {
+            if(!windowBlur)
+            {
+                $('#noticeBox').append(data);
+                adjustNoticePosition();
+            }
+            else
+            {
+                if(data)
+                {
+                    if(typeof data == 'string') data = $.parseJSON(data);
+                    if(typeof data.message == 'string') notifyMessage(data);
+                }
+            }
+        });
+    }, 300000);
+})
+
+</script>
+
+<script>$(document).ready(function()
+{
+    $("a.preview").modalTrigger({width:1000, type:'iframe'});
+})
+
+</script>
+</body>
+</html>

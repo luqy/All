@@ -1,0 +1,851 @@
+
+<!DOCTYPE html>
+<html lang='zh-cn'>
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="renderer" content="webkit">
+  <title>自助打印-测试单 - 禅道</title>
+<script>window.config={"webRoot":"\/zentao\/","debug":false,"appName":"","cookieLife":30,"requestType":"PATH_INFO","requestFix":"-","moduleVar":"m","methodVar":"f","viewVar":"t","defaultView":"html","themeRoot":"\/zentao\/theme\/","currentModule":"testtask","currentMethod":"browse","clientLang":"zh-cn","requiredFields":"","router":"\/zentao\/index.php","save":"\u4fdd\u5b58","runMode":"","timeout":30000,"pingInterval":""};
+window.lang={"submitting":"\u7a0d\u5019...","save":"\u4fdd\u5b58","expand":"\u5c55\u5f00\u5168\u90e8","timeout":"\u8fde\u63a5\u8d85\u65f6\uff0c\u8bf7\u68c0\u67e5\u7f51\u7edc\u73af\u5883\uff0c\u6216\u91cd\u8bd5\uff01"};
+
+</script>
+<script>config.onlybody = "no";</script><link rel='stylesheet' href='/zentao/theme/default/zh-cn.default.css?v=12.3.3' type='text/css' media='screen' />
+<script src='/zentao/js/all.js?v=12.3.3'></script>
+<style>#taskList tbody>tr>td, #taskList thead>tr>th {white-space: nowrap;}
+</style><link rel='icon' href='/zentao/favicon.ico' type='image/x-icon' />
+<link rel='shortcut icon' href='/zentao/favicon.ico' type='image/x-icon' />
+<!--[if lt IE 10]>
+<script src='/zentao/js/jquery/placeholder/min.js?v=12.3.3'></script>
+<![endif]-->
+</head>
+<body>
+<script>
+var chooseUsersToMail    = '选择要发信通知的用户...';
+$(document).ready(function()
+{
+    $("#mailto").attr('data-placeholder', chooseUsersToMail);
+    $("#mailto, #productID").chosen();
+});
+</script>
+<header id='header'>
+  <div id='mainHeader'>
+    <div class='container'>
+      <hgroup id='heading'>
+                <h1 id='companyname' title='全网云杭州研发中心'><a href='/zentao/index.html' >全网云杭州研发中心</a>
+</h1>
+      </hgroup>
+      <nav id='navbar'><ul class='nav nav-default'>
+<li  data-id='my'><a href='/zentao/my/' ><span> 我的地盘</span></a></li>
+<li  data-id='product'><a href='/zentao/product-index-no.html' >产品</a></li>
+<li  data-id='project'><a href='/zentao/project-index-no.html' >项目</a></li>
+<li class='active' data-id='qa'><a href='/zentao/qa/' class='active'>测试</a></li>
+<li class='divider'></li><li  data-id='doc'><a href='/zentao/doc/' >文档</a></li>
+<li  data-id='report'><a href='/zentao/report/' >统计</a></li>
+<li class='divider'></li><li  data-id='company'><a href='/zentao/company/' >组织</a></li>
+</ul>
+</nav>
+      <div id='toolbar'>
+        <div id="userMenu">
+          <div id='searchbox'><div class='input-group'><div class='input-group-btn'><a data-toggle='dropdown' class='btn btn-link'><span id='searchTypeName'>测试单</span> <span class='caret'></span></a><input type='hidden' name='searchType' id='searchType' value='testtask'  />
+<ul id='searchTypeMenu' class='dropdown-menu'><li ><a href='javascript:$.setSearchType("bug");' data-value='bug'>Bug</a></li><li ><a href='javascript:$.setSearchType("story");' data-value='story'>需求</a></li><li ><a href='javascript:$.setSearchType("task");' data-value='task'>任务</a></li><li ><a href='javascript:$.setSearchType("testcase");' data-value='testcase'>用例</a></li><li ><a href='javascript:$.setSearchType("project");' data-value='project'>项目</a></li><li ><a href='javascript:$.setSearchType("product");' data-value='product'>产品</a></li><li ><a href='javascript:$.setSearchType("user");' data-value='user'>用户</a></li><li ><a href='javascript:$.setSearchType("build");' data-value='build'>版本</a></li><li ><a href='javascript:$.setSearchType("release");' data-value='release'>发布</a></li><li ><a href='javascript:$.setSearchType("productplan");' data-value='productplan'>产品计划</a></li><li class='selected'><a href='javascript:$.setSearchType("testtask");' data-value='testtask'>测试单</a></li><li ><a href='javascript:$.setSearchType("doc");' data-value='doc'>文档</a></li><li ><a href='javascript:$.setSearchType("caselib");' data-value='caselib'>用例库</a></li><li ><a href='javascript:$.setSearchType("testreport");' data-value='testreport'>测试报告</a></li></ul></div><input id='searchInput' class='form-control search-input' type='search' onclick='this.value=""' onkeydown='if(event.keyCode==13) $.gotoObject();' placeholder='编号(ctrl+g)'/></div><a href='javascript:$.gotoObject();' class='btn btn-link' id='searchGo'>GO!</a></div>
+          <ul id="userNav" class="nav nav-default">
+            <li><a class='dropdown-toggle' data-toggle='dropdown'><span class='user-name'>鲁潜元</span><span class='caret'></span></a><ul class='dropdown-menu pull-right'><li class="user-profile-item"><a href='/zentao/my-profile.html' class=''><div class='avatar avatar bg-secondary avatar-circle'>L</div>
+<div class="user-profile-name">鲁潜元</div><div class="user-profile-role">测试</div></a></li><li class="divider"></li><li><a href='/zentao/my-profile.html' >个人档案</a>
+</li><li><a href='/zentao/my-changepassword.html?onlybody=yes' class='iframe' data-width='500'>更改密码</a>
+</li><li class='divider'></li><li class='dropdown-submenu'><a href='javascript:;'>主题</a><ul class='dropdown-menu pull-left'><li class='selected'><a href='javascript:selectTheme("default");' data-value='default'>禅道蓝（默认）</a></li><li ><a href='javascript:selectTheme("green");' data-value='green'>叶兰绿</a></li><li ><a href='javascript:selectTheme("red");' data-value='red'>赤诚红</a></li><li ><a href='javascript:selectTheme("purple");' data-value='purple'>玉烟紫</a></li><li ><a href='javascript:selectTheme("pink");' data-value='pink'>芙蕖粉</a></li><li ><a href='javascript:selectTheme("blackberry");' data-value='blackberry'>露莓黑</a></li><li ><a href='javascript:selectTheme("classic");' data-value='classic'>经典蓝</a></li></ul></li><li class='dropdown-submenu'><a href='javascript:;'>Language</a><ul class='dropdown-menu pull-left'><li class='selected'><a href='javascript:selectLang("zh-cn");'>简体</a></li><li ><a href='javascript:selectLang("zh-tw");'>繁體</a></li><li ><a href='javascript:selectLang("en");'>English</a></li><li ><a href='javascript:selectLang("de");'>Deutsch</a></li><li ><a href='javascript:selectLang("fr");'>Français</a></li><li ><a href='javascript:selectLang("vi");'>Tiếng Việt</a></li></ul></li><li class='custom-item'><a href='/zentao/custom-ajaxMenu-testtask-browse.html?onlybody=yes' data-toggle='modal' data-type='iframe' data-icon='cog' data-width='80%'>自定义导航</a></li><li class="divider"></li><li class='dropdown-submenu'><a data-toggle='dropdown'>帮助</a><ul class='dropdown-menu pull-left'><li><a href='/zentao/tutorial-start.html' class='iframe' data-class-name='modal-inverse' data-width='800' data-headerless='true' data-backdrop='true' data-keyboard='true'>新手教程</a>
+</li><li><a href='https://www.zentao.net/book/zentaopmshelp.html?fullScreen=zentao' class='open-help-tab' target='_blank'>手册</a>
+</li><li><a href='/zentao/misc-changeLog.html' class='iframe' data-width='800' data-headerless='true' data-backdrop='true' data-keyboard='true'>修改日志</a>
+</li></ul></li>
+<li><a href='/zentao/misc-about.html' class='about iframe' data-width='1050' data-headerless='true' data-backdrop='true' data-keyboard='true' data-class='modal-about'>关于禅道</a>
+</li><li class="divider"></li><li><a href='/zentao/user-logout.html' >退出</a>
+</li></ul></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id='subHeader'>
+    <div class='container'>
+      <div id="pageNav" class='btn-toolbar'><div class="btn-group angle-btn"><div class="btn-group"><a href='/zentao/qa-index-no.html' class='btn'>测试主页</a>
+</div></div><div class='btn-group angle-btn'><div class='btn-group'><button data-toggle='dropdown' type='button' class='btn btn-limit' id='currentItem' title='自助打印'>自助打印 <span class='caret'></span></button><div id='dropMenu' class='dropdown-menu search-list' data-ride='searchList' data-url='/zentao/product-ajaxGetDropMenu-3-testtask-browse-.html'><div class="input-control search-box has-icon-left has-icon-right search-example"><input type="search" class="form-control search-input" /><label class="input-control-icon-left search-icon"><i class="icon icon-search"></i></label><a class="input-control-icon-right search-clear-btn"><i class="icon icon-close icon-sm"></i></a></div></div></div></div></div>
+      <nav id='subNavbar'><ul class='nav nav-default'>
+<li class=' ' data-id='bug'><a href='/zentao/bug-browse-3.html' >Bug</a>
+</li>
+<li class='dropdown dropdown-hover ' data-id='testcase'><a href='/zentao/testcase-browse-3.html' >用例<span class='caret'></span></a>
+<ul class='dropdown-menu'><li class='' data-id='feature'><a href='/zentao/testcase-browse-3.html' >功能测试</a>
+</li></ul></li>
+<li class=' active' data-id='testtask'><a href='/zentao/testtask-browse-3.html' >测试单</a>
+</li>
+<li class=' ' data-id='report'><a href='/zentao/testreport-browse-3.html' >报告</a>
+</li>
+<li class=' ' data-id='testsuite'><a href='/zentao/testsuite-browse-3.html' >套件</a>
+</li>
+</ul>
+</nav>
+      <div id="pageActions"><div class='btn-toolbar'></div></div>
+    </div>
+  </div>
+  </header>
+
+<main id='main'  >
+  <div class='container'>
+<script>confirmDelete = "\u60a8\u786e\u8ba4\u8981\u5220\u9664\u8be5\u6d4b\u8bd5\u5355\u5417\uff1f";</script>
+<script>flow = "full";</script>
+<script>status = "totalStatus";</script>
+<style>
+#action-divider{display: inline-block; line-height: 0px; border-right: 2px solid #ddd}
+</style>
+<div id="mainMenu" class='clearfix'>
+  <div class="btn-toolbar pull-left">
+    <div class='btn-group'>
+            <a href='javascript:;' class='btn btn-link btn-limit' data-toggle='dropdown'><span class='text' title='自助打印'>自助打印</span> <span class='caret'></span></a>
+      <ul class='dropdown-menu' style='max-height:240px; max-width: 300px; overflow-y:auto'>
+        <li><a href='/zentao/testtask-browse-3-0-all,totalStatus.html' >全部产品</a>
+</li><li><a href='/zentao/testtask-browse-3-0-local,totalStatus.html' title='自助打印' class='text-ellipsis'>自助打印</a>
+</li>      </ul>
+    </div>
+        <a href='/zentao/testtask-browse-3-0-local,totalStatus.html' id='totalStatusTab' class='btn btn-link'><span class='text'>全部</span></a>
+        <a href='/zentao/testtask-browse-3-0-local,wait.html' id='waitTab' class='btn btn-link'><span class='text'>待测测试单</span></a>
+        <a href='/zentao/testtask-browse-3-0-local,doing.html' id='doingTab' class='btn btn-link'><span class='text'>测试中测试单</span></a>
+        <a href='/zentao/testtask-browse-3-0-local,blocked.html' id='blockedTab' class='btn btn-link'><span class='text'>被阻塞测试单</span></a>
+        <a href='/zentao/testtask-browse-3-0-local,done.html' id='doneTab' class='btn btn-link'><span class='text'>已测测试单</span></a>
+            <div class='input-group w-300px input-group-sm'>
+      <span class='input-group-addon'>起止时间</span>
+      <div class='datepicker-wrapper datepicker-date'><input type='text' name='date' id='date' value='' class='form-control form-date' onchange='changeDate(this.value, "", "productID=3&branch=0&type=local,totalStatus&orderBy=id_desc&recTotal=0&recPerPage=20&pageID=1")' autocomplete="off" />
+</div>
+      <span class='input-group-addon'>至</span>
+      <div class='datepicker-wrapper datepicker-date'><input type='text' name='date' id='date' value='' class='form-control form-date' onchange='changeDate("", this.value, "productID=3&branch=0&type=local,totalStatus&orderBy=id_desc&recTotal=0&recPerPage=20&pageID=1")' autocomplete="off" />
+</div>
+    </div>
+  </div>
+  <div class="btn-toolbar pull-right">
+    <a href='/zentao/testtask-create-3.html' class='btn btn-primary'><i class='icon icon-plus'></i> 提交测试</a>
+  </div>
+</div>
+<div id='mainContent' class='main-table'>
+    <table class='table has-sort-head' id='taskList'>
+    <thead>
+          <tr>
+        <th class='c-id text-left'>   <a href='/zentao/testtask-browse-3-0-local,totalStatus-id_asc-70-20.html' class='sort-down'>ID</a>
+</th>
+        <th class='w-200px text-left'><a href='/zentao/testtask-browse-3-0-local,totalStatus-name_asc-70-20.html' class='header'>名称</a>
+</th>
+        <th class='text-left'>        <a href='/zentao/testtask-browse-3-0-local,totalStatus-product_asc-70-20.html' class='header'>所属产品</a>
+</th>
+                <th class='text-left'>        <a href='/zentao/testtask-browse-3-0-local,totalStatus-project_asc-70-20.html' class='header'>所属项目</a>
+</th>
+                <th class='text-left'>        <a href='/zentao/testtask-browse-3-0-local,totalStatus-build_asc-70-20.html' class='header'>版本</a>
+</th>
+        <th class='c-user text-left'> <a href='/zentao/testtask-browse-3-0-local,totalStatus-owner_asc-70-20.html' class='header'>负责人</a>
+</th>
+        <th class='w-100px text-left'><a href='/zentao/testtask-browse-3-0-local,totalStatus-begin_asc-70-20.html' class='header'>开始日期</a>
+</th>
+        <th class='w-100px text-left'><a href='/zentao/testtask-browse-3-0-local,totalStatus-end_asc-70-20.html' class='header'>结束日期</a>
+</th>
+        <th class='w-80px text-left'> <a href='/zentao/testtask-browse-3-0-local,totalStatus-status_asc-70-20.html' class='header'>状态</a>
+</th>
+        <th class='c-actions-6 text-center'>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr class='text-left'>
+      <td><a href='/zentao/testtask-cases-372.html' >372</a>
+</td>
+      <td class='c-name' title="V1.0.0.5"><a href='/zentao/testtask-cases-372.html' >V1.0.0.5</a>
+</td>
+      <td class='c-name' title="自助打印">自助打印</td>
+            <td class='c-name' title="自助打印维护 2020">自助打印维护 2020</td>
+            <td class='c-name'><a href='/zentao/build-view-318.html?onlybody=yes' >QZ_V1.0.0.5</a>
+</td>
+      <td>鲁潜元</td>
+      <td>2020-07-20</td>
+      <td>2020-07-21</td>
+            <td title='已完成'>
+        <span class='status-task status-done'>
+          已完成        </span>
+      </td>
+      <td class='c-actions'>
+        <div id="action-divider"><a href='/zentao/testtask-cases-372.html' class='btn ' title='用例' ><i class='icon-testtask-cases icon-sitemap'></i></a>
+<a href='/zentao/testtask-linkCase-372.html' class='btn ' title='关联用例' ><i class='icon-testtask-linkCase icon-link'></i></a>
+<a href='/zentao/testreport-browse-3-product-372.html' class='btn ' title='报告列表' ><i class='icon-testreport-browse icon-flag'></i></a>
+</div><a href='/zentao/testtask-view-372.html?onlybody=yes' class='btn iframe' title='概况' ><i class='icon-testtask-view icon-list-alt'></i></a>
+<a href='/zentao/testtask-edit-372.html?onlybody=yes' class='btn ' title='编辑测试单' ><i class='icon-common-edit icon-edit'></i></a>
+      </td>
+    </tr>
+        <tr class='text-left'>
+      <td><a href='/zentao/testtask-cases-368.html' >368</a>
+</td>
+      <td class='c-name' title="V1.1.0.34"><a href='/zentao/testtask-cases-368.html' >V1.1.0.34</a>
+</td>
+      <td class='c-name' title="自助打印">自助打印</td>
+            <td class='c-name' title="自助打印维护 2020">自助打印维护 2020</td>
+            <td class='c-name'><a href='/zentao/build-view-314.html?onlybody=yes' >V1.1.0.34</a>
+</td>
+      <td>鲁潜元</td>
+      <td>2020-07-13</td>
+      <td>2020-07-14</td>
+            <td title='已完成'>
+        <span class='status-task status-done'>
+          已完成        </span>
+      </td>
+      <td class='c-actions'>
+        <div id="action-divider"><a href='/zentao/testtask-cases-368.html' class='btn ' title='用例' ><i class='icon-testtask-cases icon-sitemap'></i></a>
+<a href='/zentao/testtask-linkCase-368.html' class='btn ' title='关联用例' ><i class='icon-testtask-linkCase icon-link'></i></a>
+<a href='/zentao/testreport-browse-3-product-368.html' class='btn ' title='报告列表' ><i class='icon-testreport-browse icon-flag'></i></a>
+</div><a href='/zentao/testtask-view-368.html?onlybody=yes' class='btn iframe' title='概况' ><i class='icon-testtask-view icon-list-alt'></i></a>
+<a href='/zentao/testtask-edit-368.html?onlybody=yes' class='btn ' title='编辑测试单' ><i class='icon-common-edit icon-edit'></i></a>
+      </td>
+    </tr>
+        <tr class='text-left'>
+      <td><a href='/zentao/testtask-cases-363.html' >363</a>
+</td>
+      <td class='c-name' title="大屏第二轮测试"><a href='/zentao/testtask-cases-363.html' >大屏第二轮测试</a>
+</td>
+      <td class='c-name' title="自助打印">自助打印</td>
+            <td class='c-name' title="自助打印维护 2020">自助打印维护 2020</td>
+            <td class='c-name'><a href='/zentao/build-view-306.html?onlybody=yes' >V1.1.0.33</a>
+</td>
+      <td>鲁潜元</td>
+      <td>2020-07-01</td>
+      <td>2020-07-02</td>
+            <td title='已完成'>
+        <span class='status-task status-done'>
+          已完成        </span>
+      </td>
+      <td class='c-actions'>
+        <div id="action-divider"><a href='/zentao/testtask-cases-363.html' class='btn ' title='用例' ><i class='icon-testtask-cases icon-sitemap'></i></a>
+<a href='/zentao/testtask-linkCase-363.html' class='btn ' title='关联用例' ><i class='icon-testtask-linkCase icon-link'></i></a>
+<a href='/zentao/testreport-browse-3-product-363.html' class='btn ' title='报告列表' ><i class='icon-testreport-browse icon-flag'></i></a>
+</div><a href='/zentao/testtask-view-363.html?onlybody=yes' class='btn iframe' title='概况' ><i class='icon-testtask-view icon-list-alt'></i></a>
+<a href='/zentao/testtask-edit-363.html?onlybody=yes' class='btn ' title='编辑测试单' ><i class='icon-common-edit icon-edit'></i></a>
+      </td>
+    </tr>
+        <tr class='text-left'>
+      <td><a href='/zentao/testtask-cases-362.html' >362</a>
+</td>
+      <td class='c-name' title="绍兴OEM"><a href='/zentao/testtask-cases-362.html' >绍兴OEM</a>
+</td>
+      <td class='c-name' title="自助打印">自助打印</td>
+            <td class='c-name' title="自助打印维护 2020">自助打印维护 2020</td>
+            <td class='c-name'><a href='/zentao/build-view-309.html?onlybody=yes' >V1.0.0.1_SXOEM</a>
+</td>
+      <td>鲁潜元</td>
+      <td>2020-07-01</td>
+      <td>2020-07-02</td>
+            <td title='已完成'>
+        <span class='status-task status-done'>
+          已完成        </span>
+      </td>
+      <td class='c-actions'>
+        <div id="action-divider"><a href='/zentao/testtask-cases-362.html' class='btn ' title='用例' ><i class='icon-testtask-cases icon-sitemap'></i></a>
+<a href='/zentao/testtask-linkCase-362.html' class='btn ' title='关联用例' ><i class='icon-testtask-linkCase icon-link'></i></a>
+<a href='/zentao/testreport-browse-3-product-362.html' class='btn ' title='报告列表' ><i class='icon-testreport-browse icon-flag'></i></a>
+</div><a href='/zentao/testtask-view-362.html?onlybody=yes' class='btn iframe' title='概况' ><i class='icon-testtask-view icon-list-alt'></i></a>
+<a href='/zentao/testtask-edit-362.html?onlybody=yes' class='btn ' title='编辑测试单' ><i class='icon-common-edit icon-edit'></i></a>
+      </td>
+    </tr>
+        <tr class='text-left'>
+      <td><a href='/zentao/testtask-cases-360.html' >360</a>
+</td>
+      <td class='c-name' title="V1.1.0.33"><a href='/zentao/testtask-cases-360.html' >V1.1.0.33</a>
+</td>
+      <td class='c-name' title="自助打印">自助打印</td>
+            <td class='c-name' title="自助打印维护 2020">自助打印维护 2020</td>
+            <td class='c-name'><a href='/zentao/build-view-306.html?onlybody=yes' >V1.1.0.33</a>
+</td>
+      <td>鲁潜元</td>
+      <td>2020-06-29</td>
+      <td>2020-06-30</td>
+            <td title='已完成'>
+        <span class='status-task status-done'>
+          已完成        </span>
+      </td>
+      <td class='c-actions'>
+        <div id="action-divider"><a href='/zentao/testtask-cases-360.html' class='btn ' title='用例' ><i class='icon-testtask-cases icon-sitemap'></i></a>
+<a href='/zentao/testtask-linkCase-360.html' class='btn ' title='关联用例' ><i class='icon-testtask-linkCase icon-link'></i></a>
+<a href='/zentao/testreport-browse-3-product-360.html' class='btn ' title='报告列表' ><i class='icon-testreport-browse icon-flag'></i></a>
+</div><a href='/zentao/testtask-view-360.html?onlybody=yes' class='btn iframe' title='概况' ><i class='icon-testtask-view icon-list-alt'></i></a>
+<a href='/zentao/testtask-edit-360.html?onlybody=yes' class='btn ' title='编辑测试单' ><i class='icon-common-edit icon-edit'></i></a>
+      </td>
+    </tr>
+        <tr class='text-left'>
+      <td><a href='/zentao/testtask-cases-352.html' >352</a>
+</td>
+      <td class='c-name' title="V1.1.0.32"><a href='/zentao/testtask-cases-352.html' >V1.1.0.32</a>
+</td>
+      <td class='c-name' title="自助打印">自助打印</td>
+            <td class='c-name' title="自助打印维护 2020">自助打印维护 2020</td>
+            <td class='c-name'><a href='/zentao/build-view-295.html?onlybody=yes' >V1.1.0.32</a>
+</td>
+      <td>鲁潜元</td>
+      <td>2020-06-18</td>
+      <td>2020-06-18</td>
+            <td title='已完成'>
+        <span class='status-task status-done'>
+          已完成        </span>
+      </td>
+      <td class='c-actions'>
+        <div id="action-divider"><a href='/zentao/testtask-cases-352.html' class='btn ' title='用例' ><i class='icon-testtask-cases icon-sitemap'></i></a>
+<a href='/zentao/testtask-linkCase-352.html' class='btn ' title='关联用例' ><i class='icon-testtask-linkCase icon-link'></i></a>
+<a href='/zentao/testreport-browse-3-product-352.html' class='btn ' title='报告列表' ><i class='icon-testreport-browse icon-flag'></i></a>
+</div><a href='/zentao/testtask-view-352.html?onlybody=yes' class='btn iframe' title='概况' ><i class='icon-testtask-view icon-list-alt'></i></a>
+<a href='/zentao/testtask-edit-352.html?onlybody=yes' class='btn ' title='编辑测试单' ><i class='icon-common-edit icon-edit'></i></a>
+      </td>
+    </tr>
+        <tr class='text-left'>
+      <td><a href='/zentao/testtask-cases-348.html' >348</a>
+</td>
+      <td class='c-name' title="V1.1.0.32 多屏"><a href='/zentao/testtask-cases-348.html' >V1.1.0.32 多屏</a>
+</td>
+      <td class='c-name' title="自助打印">自助打印</td>
+            <td class='c-name' title="自助打印维护 2020">自助打印维护 2020</td>
+            <td class='c-name'><a href='/zentao/build-view-295.html?onlybody=yes' >V1.1.0.32</a>
+</td>
+      <td>鲁潜元</td>
+      <td>2020-06-10</td>
+      <td>2020-06-11</td>
+            <td title='已完成'>
+        <span class='status-task status-done'>
+          已完成        </span>
+      </td>
+      <td class='c-actions'>
+        <div id="action-divider"><a href='/zentao/testtask-cases-348.html' class='btn ' title='用例' ><i class='icon-testtask-cases icon-sitemap'></i></a>
+<a href='/zentao/testtask-linkCase-348.html' class='btn ' title='关联用例' ><i class='icon-testtask-linkCase icon-link'></i></a>
+<a href='/zentao/testreport-browse-3-product-348.html' class='btn ' title='报告列表' ><i class='icon-testreport-browse icon-flag'></i></a>
+</div><a href='/zentao/testtask-view-348.html?onlybody=yes' class='btn iframe' title='概况' ><i class='icon-testtask-view icon-list-alt'></i></a>
+<a href='/zentao/testtask-edit-348.html?onlybody=yes' class='btn ' title='编辑测试单' ><i class='icon-common-edit icon-edit'></i></a>
+      </td>
+    </tr>
+        <tr class='text-left'>
+      <td><a href='/zentao/testtask-cases-347.html' >347</a>
+</td>
+      <td class='c-name' title="V1.1.0.32 第一轮测试"><a href='/zentao/testtask-cases-347.html' >V1.1.0.32 第一轮测试</a>
+</td>
+      <td class='c-name' title="自助打印">自助打印</td>
+            <td class='c-name' title="自助打印维护 2020">自助打印维护 2020</td>
+            <td class='c-name'><a href='/zentao/build-view-295.html?onlybody=yes' >V1.1.0.32</a>
+</td>
+      <td>鲁潜元</td>
+      <td>2020-06-09</td>
+      <td>2020-06-10</td>
+            <td title='已完成'>
+        <span class='status-task status-done'>
+          已完成        </span>
+      </td>
+      <td class='c-actions'>
+        <div id="action-divider"><a href='/zentao/testtask-cases-347.html' class='btn ' title='用例' ><i class='icon-testtask-cases icon-sitemap'></i></a>
+<a href='/zentao/testtask-linkCase-347.html' class='btn ' title='关联用例' ><i class='icon-testtask-linkCase icon-link'></i></a>
+<a href='/zentao/testreport-browse-3-product-347.html' class='btn ' title='报告列表' ><i class='icon-testreport-browse icon-flag'></i></a>
+</div><a href='/zentao/testtask-view-347.html?onlybody=yes' class='btn iframe' title='概况' ><i class='icon-testtask-view icon-list-alt'></i></a>
+<a href='/zentao/testtask-edit-347.html?onlybody=yes' class='btn ' title='编辑测试单' ><i class='icon-common-edit icon-edit'></i></a>
+      </td>
+    </tr>
+        <tr class='text-left'>
+      <td><a href='/zentao/testtask-cases-341.html' >341</a>
+</td>
+      <td class='c-name' title="衢州OEM 统计"><a href='/zentao/testtask-cases-341.html' >衢州OEM 统计</a>
+</td>
+      <td class='c-name' title="自助打印">自助打印</td>
+            <td class='c-name' title="自助打印维护 2020">自助打印维护 2020</td>
+            <td class='c-name'><a href='/zentao/build-view-288.html?onlybody=yes' >V1.0.0.4_</a>
+</td>
+      <td>鲁潜元</td>
+      <td>2020-06-01</td>
+      <td>2020-06-01</td>
+            <td title='已完成'>
+        <span class='status-task status-done'>
+          已完成        </span>
+      </td>
+      <td class='c-actions'>
+        <div id="action-divider"><a href='/zentao/testtask-cases-341.html' class='btn ' title='用例' ><i class='icon-testtask-cases icon-sitemap'></i></a>
+<a href='/zentao/testtask-linkCase-341.html' class='btn ' title='关联用例' ><i class='icon-testtask-linkCase icon-link'></i></a>
+<a href='/zentao/testreport-browse-3-product-341.html' class='btn ' title='报告列表' ><i class='icon-testreport-browse icon-flag'></i></a>
+</div><a href='/zentao/testtask-view-341.html?onlybody=yes' class='btn iframe' title='概况' ><i class='icon-testtask-view icon-list-alt'></i></a>
+<a href='/zentao/testtask-edit-341.html?onlybody=yes' class='btn ' title='编辑测试单' ><i class='icon-common-edit icon-edit'></i></a>
+      </td>
+    </tr>
+        <tr class='text-left'>
+      <td><a href='/zentao/testtask-cases-336.html' >336</a>
+</td>
+      <td class='c-name' title="404"><a href='/zentao/testtask-cases-336.html' >404</a>
+</td>
+      <td class='c-name' title="自助打印">自助打印</td>
+            <td class='c-name' title="自助打印维护 2020">自助打印维护 2020</td>
+            <td class='c-name'><a href='/zentao/build-view-284.html?onlybody=yes' >1.1.0.31</a>
+</td>
+      <td>鲁潜元</td>
+      <td>2020-05-27</td>
+      <td>2020-05-27</td>
+            <td title='已完成'>
+        <span class='status-task status-done'>
+          已完成        </span>
+      </td>
+      <td class='c-actions'>
+        <div id="action-divider"><a href='/zentao/testtask-cases-336.html' class='btn ' title='用例' ><i class='icon-testtask-cases icon-sitemap'></i></a>
+<a href='/zentao/testtask-linkCase-336.html' class='btn ' title='关联用例' ><i class='icon-testtask-linkCase icon-link'></i></a>
+<a href='/zentao/testreport-browse-3-product-336.html' class='btn ' title='报告列表' ><i class='icon-testreport-browse icon-flag'></i></a>
+</div><a href='/zentao/testtask-view-336.html?onlybody=yes' class='btn iframe' title='概况' ><i class='icon-testtask-view icon-list-alt'></i></a>
+<a href='/zentao/testtask-edit-336.html?onlybody=yes' class='btn ' title='编辑测试单' ><i class='icon-common-edit icon-edit'></i></a>
+      </td>
+    </tr>
+        <tr class='text-left'>
+      <td><a href='/zentao/testtask-cases-317.html' >317</a>
+</td>
+      <td class='c-name' title="V1.1.0.30 第一轮测试"><a href='/zentao/testtask-cases-317.html' >V1.1.0.30 第一轮测试</a>
+</td>
+      <td class='c-name' title="自助打印">自助打印</td>
+            <td class='c-name' title="自助打印">自助打印</td>
+            <td class='c-name'><a href='/zentao/build-view-269.html?onlybody=yes' >V1.1.0.30</a>
+</td>
+      <td>鲁潜元</td>
+      <td>2020-04-30</td>
+      <td>2020-05-06</td>
+            <td title='已完成'>
+        <span class='status-task status-done'>
+          已完成        </span>
+      </td>
+      <td class='c-actions'>
+        <div id="action-divider"><a href='/zentao/testtask-cases-317.html' class='btn ' title='用例' ><i class='icon-testtask-cases icon-sitemap'></i></a>
+<a href='/zentao/testtask-linkCase-317.html' class='btn ' title='关联用例' ><i class='icon-testtask-linkCase icon-link'></i></a>
+<a href='/zentao/testreport-browse-3-product-317.html' class='btn ' title='报告列表' ><i class='icon-testreport-browse icon-flag'></i></a>
+</div><a href='/zentao/testtask-view-317.html?onlybody=yes' class='btn iframe' title='概况' ><i class='icon-testtask-view icon-list-alt'></i></a>
+<a href='/zentao/testtask-edit-317.html?onlybody=yes' class='btn ' title='编辑测试单' ><i class='icon-common-edit icon-edit'></i></a>
+      </td>
+    </tr>
+        <tr class='text-left'>
+      <td><a href='/zentao/testtask-cases-306.html' >306</a>
+</td>
+      <td class='c-name' title="衢州V1.0.0.3第一轮测试"><a href='/zentao/testtask-cases-306.html' >衢州V1.0.0.3第一轮测试</a>
+</td>
+      <td class='c-name' title="自助打印">自助打印</td>
+            <td class='c-name' title="自助打印">自助打印</td>
+            <td class='c-name'><a href='/zentao/build-view-53.html?onlybody=yes' >V1.0.0.0</a>
+</td>
+      <td>鲁潜元</td>
+      <td>2020-04-23</td>
+      <td>2020-04-24</td>
+            <td title='已完成'>
+        <span class='status-task status-done'>
+          已完成        </span>
+      </td>
+      <td class='c-actions'>
+        <div id="action-divider"><a href='/zentao/testtask-cases-306.html' class='btn ' title='用例' ><i class='icon-testtask-cases icon-sitemap'></i></a>
+<a href='/zentao/testtask-linkCase-306.html' class='btn ' title='关联用例' ><i class='icon-testtask-linkCase icon-link'></i></a>
+<a href='/zentao/testreport-browse-3-product-306.html' class='btn ' title='报告列表' ><i class='icon-testreport-browse icon-flag'></i></a>
+</div><a href='/zentao/testtask-view-306.html?onlybody=yes' class='btn iframe' title='概况' ><i class='icon-testtask-view icon-list-alt'></i></a>
+<a href='/zentao/testtask-edit-306.html?onlybody=yes' class='btn ' title='编辑测试单' ><i class='icon-common-edit icon-edit'></i></a>
+      </td>
+    </tr>
+        <tr class='text-left'>
+      <td><a href='/zentao/testtask-cases-304.html' >304</a>
+</td>
+      <td class='c-name' title="V1.1.0.29 第一轮测试"><a href='/zentao/testtask-cases-304.html' >V1.1.0.29 第一轮测试</a>
+</td>
+      <td class='c-name' title="自助打印">自助打印</td>
+            <td class='c-name' title="自助打印">自助打印</td>
+            <td class='c-name'><a href='/zentao/build-view-262.html?onlybody=yes' >V1.1.0.29</a>
+</td>
+      <td>鲁潜元</td>
+      <td>2020-04-22</td>
+      <td>2020-04-23</td>
+            <td title='已完成'>
+        <span class='status-task status-done'>
+          已完成        </span>
+      </td>
+      <td class='c-actions'>
+        <div id="action-divider"><a href='/zentao/testtask-cases-304.html' class='btn ' title='用例' ><i class='icon-testtask-cases icon-sitemap'></i></a>
+<a href='/zentao/testtask-linkCase-304.html' class='btn ' title='关联用例' ><i class='icon-testtask-linkCase icon-link'></i></a>
+<a href='/zentao/testreport-browse-3-product-304.html' class='btn ' title='报告列表' ><i class='icon-testreport-browse icon-flag'></i></a>
+</div><a href='/zentao/testtask-view-304.html?onlybody=yes' class='btn iframe' title='概况' ><i class='icon-testtask-view icon-list-alt'></i></a>
+<a href='/zentao/testtask-edit-304.html?onlybody=yes' class='btn ' title='编辑测试单' ><i class='icon-common-edit icon-edit'></i></a>
+      </td>
+    </tr>
+        <tr class='text-left'>
+      <td><a href='/zentao/testtask-cases-298.html' >298</a>
+</td>
+      <td class='c-name' title="衢州oem V1.0.0.2"><a href='/zentao/testtask-cases-298.html' >衢州oem V1.0.0.2</a>
+</td>
+      <td class='c-name' title="自助打印">自助打印</td>
+            <td class='c-name' title="自助打印">自助打印</td>
+            <td class='c-name'><a href='/zentao/build-view-257.html?onlybody=yes' >衢州OEMV1.0.0.2</a>
+</td>
+      <td>鲁潜元</td>
+      <td>2020-04-15</td>
+      <td>2020-04-16</td>
+            <td title='已完成'>
+        <span class='status-task status-done'>
+          已完成        </span>
+      </td>
+      <td class='c-actions'>
+        <div id="action-divider"><a href='/zentao/testtask-cases-298.html' class='btn ' title='用例' ><i class='icon-testtask-cases icon-sitemap'></i></a>
+<a href='/zentao/testtask-linkCase-298.html' class='btn ' title='关联用例' ><i class='icon-testtask-linkCase icon-link'></i></a>
+<a href='/zentao/testreport-browse-3-product-298.html' class='btn ' title='报告列表' ><i class='icon-testreport-browse icon-flag'></i></a>
+</div><a href='/zentao/testtask-view-298.html?onlybody=yes' class='btn iframe' title='概况' ><i class='icon-testtask-view icon-list-alt'></i></a>
+<a href='/zentao/testtask-edit-298.html?onlybody=yes' class='btn ' title='编辑测试单' ><i class='icon-common-edit icon-edit'></i></a>
+      </td>
+    </tr>
+        <tr class='text-left'>
+      <td><a href='/zentao/testtask-cases-293.html' >293</a>
+</td>
+      <td class='c-name' title="衢州oem改版.1"><a href='/zentao/testtask-cases-293.html' >衢州oem改版.1</a>
+</td>
+      <td class='c-name' title="自助打印">自助打印</td>
+            <td class='c-name' title="自助打印">自助打印</td>
+            <td class='c-name'><a href='/zentao/build-view-253.html?onlybody=yes' >衢州OEMV1.0.0.1</a>
+</td>
+      <td>鲁潜元</td>
+      <td>2020-04-10</td>
+      <td>2020-04-10</td>
+            <td title='已完成'>
+        <span class='status-task status-done'>
+          已完成        </span>
+      </td>
+      <td class='c-actions'>
+        <div id="action-divider"><a href='/zentao/testtask-cases-293.html' class='btn ' title='用例' ><i class='icon-testtask-cases icon-sitemap'></i></a>
+<a href='/zentao/testtask-linkCase-293.html' class='btn ' title='关联用例' ><i class='icon-testtask-linkCase icon-link'></i></a>
+<a href='/zentao/testreport-browse-3-product-293.html' class='btn ' title='报告列表' ><i class='icon-testreport-browse icon-flag'></i></a>
+</div><a href='/zentao/testtask-view-293.html?onlybody=yes' class='btn iframe' title='概况' ><i class='icon-testtask-view icon-list-alt'></i></a>
+<a href='/zentao/testtask-edit-293.html?onlybody=yes' class='btn ' title='编辑测试单' ><i class='icon-common-edit icon-edit'></i></a>
+      </td>
+    </tr>
+        <tr class='text-left'>
+      <td><a href='/zentao/testtask-cases-286.html' >286</a>
+</td>
+      <td class='c-name' title="V1.1.0.28 第二轮测试"><a href='/zentao/testtask-cases-286.html' >V1.1.0.28 第二轮测试</a>
+</td>
+      <td class='c-name' title="自助打印">自助打印</td>
+            <td class='c-name' title="自助打印">自助打印</td>
+            <td class='c-name'><a href='/zentao/build-view-247.html?onlybody=yes' >V1.1.0.28</a>
+</td>
+      <td>鲁潜元</td>
+      <td>2020-03-30</td>
+      <td>2020-03-31</td>
+            <td title='已完成'>
+        <span class='status-task status-done'>
+          已完成        </span>
+      </td>
+      <td class='c-actions'>
+        <div id="action-divider"><a href='/zentao/testtask-cases-286.html' class='btn ' title='用例' ><i class='icon-testtask-cases icon-sitemap'></i></a>
+<a href='/zentao/testtask-linkCase-286.html' class='btn ' title='关联用例' ><i class='icon-testtask-linkCase icon-link'></i></a>
+<a href='/zentao/testreport-browse-3-product-286.html' class='btn ' title='报告列表' ><i class='icon-testreport-browse icon-flag'></i></a>
+</div><a href='/zentao/testtask-view-286.html?onlybody=yes' class='btn iframe' title='概况' ><i class='icon-testtask-view icon-list-alt'></i></a>
+<a href='/zentao/testtask-edit-286.html?onlybody=yes' class='btn ' title='编辑测试单' ><i class='icon-common-edit icon-edit'></i></a>
+      </td>
+    </tr>
+        <tr class='text-left'>
+      <td><a href='/zentao/testtask-cases-285.html' >285</a>
+</td>
+      <td class='c-name' title="衢州OEM 第一轮测试"><a href='/zentao/testtask-cases-285.html' >衢州OEM 第一轮测试</a>
+</td>
+      <td class='c-name' title="自助打印">自助打印</td>
+            <td class='c-name' title="自助打印">自助打印</td>
+            <td class='c-name'><a href='/zentao/build-view-248.html?onlybody=yes' >衢州OEMV1.0.0.0</a>
+</td>
+      <td>鲁潜元</td>
+      <td>2020-03-30</td>
+      <td>2020-04-02</td>
+            <td title='已完成'>
+        <span class='status-task status-done'>
+          已完成        </span>
+      </td>
+      <td class='c-actions'>
+        <div id="action-divider"><a href='/zentao/testtask-cases-285.html' class='btn ' title='用例' ><i class='icon-testtask-cases icon-sitemap'></i></a>
+<a href='/zentao/testtask-linkCase-285.html' class='btn ' title='关联用例' ><i class='icon-testtask-linkCase icon-link'></i></a>
+<a href='/zentao/testreport-browse-3-product-285.html' class='btn ' title='报告列表' ><i class='icon-testreport-browse icon-flag'></i></a>
+</div><a href='/zentao/testtask-view-285.html?onlybody=yes' class='btn iframe' title='概况' ><i class='icon-testtask-view icon-list-alt'></i></a>
+<a href='/zentao/testtask-edit-285.html?onlybody=yes' class='btn ' title='编辑测试单' ><i class='icon-common-edit icon-edit'></i></a>
+      </td>
+    </tr>
+        <tr class='text-left'>
+      <td><a href='/zentao/testtask-cases-283.html' >283</a>
+</td>
+      <td class='c-name' title="V1.1.0.28 - 江西妇幼 第一轮测试"><a href='/zentao/testtask-cases-283.html' >V1.1.0.28 - 江西妇幼 第一轮测试</a>
+</td>
+      <td class='c-name' title="自助打印">自助打印</td>
+            <td class='c-name' title="自助打印">自助打印</td>
+            <td class='c-name'><a href='/zentao/build-view-247.html?onlybody=yes' >V1.1.0.28</a>
+</td>
+      <td>鲁潜元</td>
+      <td>2020-03-30</td>
+      <td>2020-03-31</td>
+            <td title='已完成'>
+        <span class='status-task status-done'>
+          已完成        </span>
+      </td>
+      <td class='c-actions'>
+        <div id="action-divider"><a href='/zentao/testtask-cases-283.html' class='btn ' title='用例' ><i class='icon-testtask-cases icon-sitemap'></i></a>
+<a href='/zentao/testtask-linkCase-283.html' class='btn ' title='关联用例' ><i class='icon-testtask-linkCase icon-link'></i></a>
+<a href='/zentao/testreport-browse-3-product-283.html' class='btn ' title='报告列表' ><i class='icon-testreport-browse icon-flag'></i></a>
+</div><a href='/zentao/testtask-view-283.html?onlybody=yes' class='btn iframe' title='概况' ><i class='icon-testtask-view icon-list-alt'></i></a>
+<a href='/zentao/testtask-edit-283.html?onlybody=yes' class='btn ' title='编辑测试单' ><i class='icon-common-edit icon-edit'></i></a>
+      </td>
+    </tr>
+        <tr class='text-left'>
+      <td><a href='/zentao/testtask-cases-257.html' >257</a>
+</td>
+      <td class='c-name' title="绍兴OEM版本V1.0.0.1"><a href='/zentao/testtask-cases-257.html' >绍兴OEM版本V1.0.0.1</a>
+</td>
+      <td class='c-name' title="自助打印">自助打印</td>
+            <td class='c-name' title="自助打印">自助打印</td>
+            <td class='c-name'><a href='/zentao/build-view-222.html?onlybody=yes' >绍兴OEM版本</a>
+</td>
+      <td>鲁潜元</td>
+      <td>2019-12-27</td>
+      <td>2019-12-27</td>
+            <td title='已完成'>
+        <span class='status-task status-done'>
+          已完成        </span>
+      </td>
+      <td class='c-actions'>
+        <div id="action-divider"><a href='/zentao/testtask-cases-257.html' class='btn ' title='用例' ><i class='icon-testtask-cases icon-sitemap'></i></a>
+<a href='/zentao/testtask-linkCase-257.html' class='btn ' title='关联用例' ><i class='icon-testtask-linkCase icon-link'></i></a>
+<a href='/zentao/testreport-browse-3-product-257.html' class='btn ' title='报告列表' ><i class='icon-testreport-browse icon-flag'></i></a>
+</div><a href='/zentao/testtask-view-257.html?onlybody=yes' class='btn iframe' title='概况' ><i class='icon-testtask-view icon-list-alt'></i></a>
+<a href='/zentao/testtask-edit-257.html?onlybody=yes' class='btn ' title='编辑测试单' ><i class='icon-common-edit icon-edit'></i></a>
+      </td>
+    </tr>
+        <tr class='text-left'>
+      <td><a href='/zentao/testtask-cases-248.html' >248</a>
+</td>
+      <td class='c-name' title="条码打印V1.0.0.1 第一轮测试"><a href='/zentao/testtask-cases-248.html' >条码打印V1.0.0.1 第一轮测试</a>
+</td>
+      <td class='c-name' title="自助打印">自助打印</td>
+            <td class='c-name' title="条码打印">条码打印</td>
+            <td class='c-name'><a href='/zentao/build-view-213.html?onlybody=yes' >1.0.0.1</a>
+</td>
+      <td>鲁潜元</td>
+      <td>2019-11-29</td>
+      <td>2019-11-30</td>
+            <td title='已完成'>
+        <span class='status-task status-done'>
+          已完成        </span>
+      </td>
+      <td class='c-actions'>
+        <div id="action-divider"><a href='/zentao/testtask-cases-248.html' class='btn ' title='用例' ><i class='icon-testtask-cases icon-sitemap'></i></a>
+<a href='/zentao/testtask-linkCase-248.html' class='btn ' title='关联用例' ><i class='icon-testtask-linkCase icon-link'></i></a>
+<a href='/zentao/testreport-browse-3-product-248.html' class='btn ' title='报告列表' ><i class='icon-testreport-browse icon-flag'></i></a>
+</div><a href='/zentao/testtask-view-248.html?onlybody=yes' class='btn iframe' title='概况' ><i class='icon-testtask-view icon-list-alt'></i></a>
+<a href='/zentao/testtask-edit-248.html?onlybody=yes' class='btn ' title='编辑测试单' ><i class='icon-common-edit icon-edit'></i></a>
+      </td>
+    </tr>
+        </tbody>
+  </table>
+  <div class='table-footer'><ul class='pager' data-page-cookie='pagerTesttaskBrowse' data-ride='pager' data-rec-total='70' data-rec-per-page='20' data-page='1' data-link-creator='/zentao/testtask-browse-3--local,totalStatus-id_desc-70-{recPerPage}-{page}-0-0.html'></ul></div>
+  </div>
+<script>$(function(){$('#已完成Tab').addClass('btn-active-text').append(" <span class='label label-light label-badge'>70</span>")})</script>
+</div><script>
+$.initSidebar();
+</script>
+
+<iframe frameborder='0' name='hiddenwin' id='hiddenwin' scrolling='no' class='debugwin hidden'></iframe>
+
+</main><footer id='footer'>
+  <div class="container">
+    <ul class='breadcrumb'><li><a href='/zentao/my/' >禅道</a>
+</li><li><a href='/zentao/qa/' >测试</a>
+</li><li class='active'><a href='/zentao/testtask-browse-3.html' >自助打印</a>
+</li><li class='active'>测试单</li></ul>    <div id='poweredBy'>
+      <small class='muted'><a href='https://api.zentao.net/goto.php?item=aiux' class='link-aiux' target='_blank'>Designed by <strong>艾体验</strong></a></small> &nbsp;
+      <a href='https://www.zentao.net' target='_blank'><i class='icon-zentao'></i> 禅道12.3.3</a> &nbsp;
+      <a href='https://api.zentao.net/goto.php?item=proversion&from=footer' target='_blank' id='proLink' class='text-important'>专业版 <i class='text-danger icon-pro-version'></i></a> &nbsp;           </div>
+  </div>
+</footer>
+<div id="noticeBox"></div>
+<script>
+/* Alert got messages. */
+needPing = false;
+$(function()
+{
+    var windowBlur = false;
+    if(window.Notification)
+    {
+        window.onblur  = function(){windowBlur = true;}
+        window.onfocus = function(){windowBlur = false;}
+    }
+    setInterval(function()
+    {
+        $.get(createLink('message', 'ajaxGetMessage', "windowBlur=" + (windowBlur ? '1' : '0')), function(data)
+        {
+            if(!windowBlur)
+            {
+                $('#noticeBox').append(data);
+                adjustNoticePosition();
+            }
+            else
+            {
+                if(data)
+                {
+                    if(typeof data == 'string') data = $.parseJSON(data);
+                    if(typeof data.message == 'string') notifyMessage(data);
+                }
+            }
+        });
+    }, 300000);
+})
+
+</script>
+
+<script>$(document).ready(function()
+{    
+    $('#startForm, #closeForm, #activateForm, #blockForm').ajaxForm(
+    {
+        finish:function(response)
+        {
+            if(response.locate)
+            {
+                if(response.locate == 'parent')
+                {
+                    parent.$.cookie('selfClose', 1);
+                    setTimeout(function(){parent.$.closeModal(null, 'this')}, 1200);
+                }
+                else
+                {
+                    setTimeout(function(){window.location.href = response.locate;}, 1200);
+                }
+            }
+            return false;
+        }
+    });
+})
+
+/**
+ * Adjust priBox width.
+ * 
+ * @access public
+ * @return void
+ */
+function adjustPriBoxWidth()
+{
+    var boxWidth   = $('#ownerAndPriBox').width();
+    var beginWidth = $("input[name='begin']").outerWidth();
+    var addonWidth = $('#ownerAndPriBox .input-group-addon').outerWidth();
+    $('#pri,#pri_chosen .chosen-single').css('width', boxWidth - beginWidth -addonWidth);
+}
+
+/**
+ * Create bug from fail case.
+ * 
+ * @param  object $obj 
+ * @access public
+ * @return void
+ */
+function createBug(obj)
+{
+    var $form  = $(obj).closest('form');
+    var params = $form.data('params');
+    var stepIdList = '';
+    $form.find('.step .step-id :checkbox').each(function()
+    {
+        if($(this).prop('checked')) stepIdList += $(this).val() + '_';
+    });
+
+    var onlybody    = config.onlybody;
+    config.onlybody = 'no';
+    window.open(createLink('bug', 'create', params + ',stepIdList=' + stepIdList), '_blank');
+    config.onlybody = onlybody;
+}
+
+/**
+ * Load project related 
+ * 
+ * @param  int $projectID 
+ * @access public
+ * @return void
+ */
+function loadProjectRelated(projectID)
+{
+    loadProjectBuilds(projectID);
+}
+
+/**
+ * Load project builds.
+ * 
+ * @param  int $projectID 
+ * @access public
+ * @return void
+ */
+function loadProjectBuilds(projectID)
+{
+    selectedBuild = $('#build').val();
+    if(!selectedBuild) selectedBuild = 0;
+    link = createLink('build', 'ajaxGetProjectBuilds', 'projectID=' + projectID + '&productID=' + $('#product').val() + '&varName=testTaskBuild&build=' + selectedBuild);
+    if(projectID == 0) link = createLink('build', 'ajaxGetProductBuilds', 'productID=' + $('#product').val() + '&varName=resolvedBuild&build=' + selectedBuild);
+    $('#buildBox').load(link, function()
+    {
+        $('#resolvedBuild').attr('id', 'build').attr('name', 'build').find('option[value=trunk]').remove();
+        $('#build').chosen();
+    });
+}
+
+/**
+ * when begin date input change and end date input is null
+ * change end date input to begin's after day
+ * 
+ * @access public
+ * @return void
+ */
+function suitEndDate()
+{
+    beginDate = $('#begin').val();
+    if(!beginDate) return;
+    endDate = $('#end').val();
+    if(endDate) return;
+    
+    endDate = convertStringToDate(beginDate).addDays(1).toString('yyyy-MM-dd');
+    $('#end').val(endDate);
+}
+
+/**
+ * Convert a date string like 2011-11-11 to date object in js.
+ * 
+ * @param  string $date 
+ * @access public
+ * @return date
+ */
+function convertStringToDate(dateString)
+{
+    dateString = dateString.split('-');
+    dateString = dateString[1] + '/' + dateString[2] + '/' + dateString[0];
+    
+    return Date.parse(dateString);
+}
+$(document).ready(function()
+{
+    if(flow == 'onlyTest')
+    {
+        $('#subNavbar > .nav > li[data-id=' + status + ']').addClass('active');
+    }
+});
+
+function changeDate(begin, end, condition)
+{
+    if(begin.indexOf('-') != -1)
+    {
+        var beginarray = begin.split("-");
+        var begin = '';
+        for(i=0 ; i < beginarray.length ; i++)
+        {
+            begin = begin + beginarray[i];
+        }
+    }
+    if(end.indexOf('-') != -1)
+    {
+        var endarray = end.split("-");
+        var end = '';
+        for(i=0 ; i < endarray.length ; i++)
+        {
+            end = end + endarray[i];
+        }
+    }
+
+    condition = condition + '&beginTime=' + begin + '&endTime=' + end;
+    link = createLink('testtask', 'browse', condition);
+    location.href=link;
+}
+
+</script>
+</body>
+</html>
+

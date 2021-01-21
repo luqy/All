@@ -1,0 +1,20 @@
+from selenium import webdriver
+import time
+driver=webdriver.Chrome()
+driver.get("https://mail.163.com/")
+driver.switch_to.frame(driver.find_element_by_xpath("//iframe[contains(@id,'x-URS-iframe')]"))
+test=driver.find_element_by_xpath("//div[@class='u-input box']/input[@name='email']")
+print(test.send_keys("123"))
+time.sleep(1)
+# wb = webdriver.Chrome()
+# wb.get('https://mail.qq.com/')
+# wb.find_element_by_id('qqLoginTab').click()
+# wb.implicitly_wait(5)
+# wb.switch_to_frame(wb.find_element_by_id('login_frame'))
+# wb.find_element_by_name('u').send_keys('2386410196')
+# wb.find_element_by_id('p').send_keys('19951210209')
+# wb.find_element_by_id('login_button').click()
+# result=wb.find_element_by_id('useraddr').text
+# print(result)
+# wb.quit()
+driver.close()
